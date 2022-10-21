@@ -1,0 +1,10 @@
+node_modules
+yarn-error.log
+
+# ignore all env files except example
+.env
+.env.*
+!.env.example
+
+test-ledger
+dist

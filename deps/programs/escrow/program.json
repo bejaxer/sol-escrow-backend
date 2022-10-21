@@ -1,0 +1,127 @@
+{
+  "version": "0.1.0",
+  "name": "escrow",
+  "instructions": [
+    {
+      "name": "initialize",
+      "accounts": [
+        {
+          "name": "solVaultAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "initializer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "lock",
+      "accounts": [
+        {
+          "name": "solVaultAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userEscrowAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "claim",
+      "accounts": [
+        {
+          "name": "solVaultAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userEscrowAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "EscrowAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "solAmount",
+            "type": "u64"
+          },
+          {
+            "name": "endTime",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "ZeroAmount",
+      "msg": "Zero amount"
+    },
+    {
+      "code": 6001,
+      "name": "Locked",
+      "msg": "Locked"
+    }
+  ],
+  "metadata": {
+    "address": "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+  }
+}
